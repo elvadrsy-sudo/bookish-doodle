@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Love Finds Lydia</title>
 <meta name="description" content="A faith-forward, enemies-to-lovers romance, serialized one Saturday at a time.">
-@import url("https://cdn.jsdelivr.net/npm/@shieldfont/font@0.3.4/shieldfont.css");
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -37,10 +37,7 @@
   }
   a { color: inherit; }
   :focus-visible { outline: 3px solid var(--orchid); outline-offset: 3px; border-radius: 6px; }
-<!-- ShieldFont: demonstration snippet, not a production integration.
-     If you publish this, the accessible alternative is yours to build.
-     For a real site, use @shieldfont/react: https://shieldfont.org/docs/integration -->
-<p class="tk9">
+
   /* Floating nav pill */
   .nav {
     position: sticky; top: 14px; z-index: 10;
@@ -241,7 +238,7 @@
     return '<span class="art" style="--g:' + ch.g + '"><span class="num" aria-hidden="true">' + ch.n + '</span>' +
            '<img src="' + ch.image + '" alt="Artwork for chapter ' + ch.n + ': ' + ch.title + '" onerror="this.remove()"></span>';
   }
-</p>
+
   var fan = document.getElementById("featured");
   chapters.slice(0, 4).forEach(function (ch) {
     var a = document.createElement("a");
