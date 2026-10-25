@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  HOW TO USE THIS TEMPLATE
+  1. Make a copy of this file and name it chapter-1.html (then chapter-2.html, and so on).
+  2. Look for the notes that say "CHANGE THIS" and replace the text next to each one.
+  3. Replace the sample story lines with your own ENCODED text (see "CHANGE THIS: your story"
+     further down). Never type your plain story words into this file.
+  4. Upload the new file to your repository, just like index.html.
+  5. In index.html, find that chapter in the list and add:  url: "chapter-1.html",
+     The chapter's card will then say "Read chapter" and open this page.
+-->
+
+<!-- CHANGE THIS: chapter number and title (this shows in the browser tab) -->
+<title>Chapter 2: A Backroad Brunch | Love Finds Lydia</title>
+<meta name="description" content="Read <!--the free preview of--> chapter 2 of Love Finds Lydia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- ShieldFont: the typeface that protects the story text below. Leave this line exactly as it is, including the version number. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shieldfont/font@0.3.5/shieldfont.css">
+<style>
+  :root {
+    --ink: #2B1A2D;
+    --muted: #6E5A70;
+    --plum: #5A2350;
+    --orchid: #9B4A86;
+    --gold: #D9A441;
+    --linen: #FBF5F8;
+    --mist: #F1E4EE;
+    --line: rgba(43, 26, 45, .12);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(70% 380px at 50% 0, #FFE8D6 0, rgba(255, 232, 214, 0) 100%),
+      linear-gradient(180deg, #F4DFEB 0, var(--linen) 520px);
+    background-color: var(--linen);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--orchid); outline-offset: 3px; border-radius: 6px; }
+
+  /* Floating nav pill */
+  .nav {
+    position: sticky; top: 14px; z-index: 10;
+    width: fit-content; max-width: calc(100% - 32px);
+    margin: 14px auto 0;
+    display: flex; align-items: center; gap: 22px;
+    padding: 8px 8px 8px 22px;
+    background: rgba(255, 255, 255, .86);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 6px 24px rgba(90, 35, 80, .08);
+    font-size: .92rem; font-weight: 500;
+  }
+  .nav .mark { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.1rem; text-decoration: none; color: var(--plum); }
+  .nav a.link { text-decoration: none; color: var(--muted); }
+  .nav a.link:hover { color: var(--ink); }
+  .nav .cta { text-decoration: none; background: var(--ink); color: #fff; padding: 9px 18px; border-radius: 999px; font-weight: 600; }
+  .nav .cta:hover { background: var(--plum); }
+
+  /* Artwork banner */
+  .banner {
+    position: relative; overflow: hidden;
+    max-width: 860px; margin: 36px auto 0;
+    aspect-ratio: 16 / 7;
+    border-radius: 16px;
+    background: var(--g);
+    box-shadow: 0 14px 34px rgba(90, 35, 80, .24);
+  }
+  .banner .num {
+    position: absolute; right: 28px; top: -10px;
+    font-family: var(--serif); font-weight: 600; font-size: clamp(7rem, 22vw, 14rem); line-height: 1;
+    color: rgba(255, 255, 255, .16);
+  }
+  .banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Title block */
+  .head { max-width: 660px; margin: 0 auto; padding: 34px 24px 0; }
+  .meta { color: var(--muted); font-size: .92rem; margin: 0 0 6px; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 14px; }
+  .status { display: inline-block; font-size: .82rem; font-weight: 600; color: var(--plum); background: var(--mist); padding: 3px 12px; border-radius: 999px; }
+
+  /* Reading column */
+  .story { max-width: 660px; margin: 0 auto; padding: 28px 24px 0; }
+
+  /* Note above the protected text */
+  .shield-note {
+    margin: 0 0 26px; padding: 12px 16px;
+    border: 1px solid var(--line); border-left: 3px solid var(--orchid); border-radius: 10px;
+    background: rgba(255, 255, 255, .6);
+    font-size: .88rem; line-height: 1.5; color: var(--muted);
+  }
+  .shield-note p { margin: 0; }
+  .shield-note a { color: var(--plum); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Protected story text (ShieldFont). Leave these rules as they are:
+     bold, letter spacing, and hyphenation can make the font show its scrambled words. */
+  .story .tk9, .story .tk9-t {
+    font-size: 1.15rem; line-height: 1.75; margin: 0 0 1.25em;
+    font-weight: 400; font-synthesis: none; font-feature-settings: normal;
+    letter-spacing: 0; hyphens: manual; text-transform: none;
+  }
+  .story .cliff {
+    font-style: italic; color: var(--plum);
+    border-left: 3px solid var(--gold); padding-left: 16px; margin-top: 1.6em;
+  }
+
+  /* Keep reading box */
+  .more { max-width: 660px; margin: 8px auto 0; padding: 0 24px; }
+  .more .box {
+    border-radius: 18px; padding: 30px 26px; text-align: center; color: #fff;
+    background: linear-gradient(135deg, var(--plum), var(--orchid));
+  }
+  .more h2 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 0 0 8px; }
+  .more p { margin: 0 auto 18px; max-width: 44ch; opacity: .93; }
+  .more a.btn { display: inline-block; text-decoration: none; background: #fff; color: var(--plum); font-weight: 600; padding: 11px 24px; border-radius: 999px; }
+  .more a.btn:hover { background: var(--gold); color: var(--ink); }
+
+  /* Previous / next */
+  .pager { max-width: 660px; margin: 28px auto 0; padding: 0 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; font-weight: 600; font-size: .95rem; }
+  .pager > :last-child { justify-self: end; }
+  .pager a { text-decoration: none; color: var(--plum); }
+  .pager a:hover { color: var(--orchid); text-decoration: underline; }
+
+  footer { text-align: center; color: var(--muted); font-size: .88rem; padding: 36px 24px 56px; }
+
+  @media (max-width: 720px) {
+    .banner { margin: 24px 16px 0; }
+    .nav { gap: 14px; padding-left: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <a class="mark" href="index.html">Lydia</a>
+  <a class="link" href="index.html">Home</a>
+  <a class="link" href="index.html#chapters">Chapters</a>
+  <!-- CHANGE THIS: replace the # with your Substack link -->
+  <a class="cta" href="#">Subscribe</a>
+</nav>
+
+<!--
+  CHANGE THIS: the artwork banner.
+  - style="--g: ..." is the colored placeholder. You can leave it.
+  - Change the number after "num" and the image name (images/chapter-2.jpg) for each chapter.
+-->
+<div class="banner" style="--g: linear-gradient(135deg,#6B2D5C,#C26A8E)" role="img" aria-label="Artwork for chapter 2">
+  <span class="num" aria-hidden="true">2</span>
+  <img src="images/chapter-2.jpg" alt="" onerror="this.remove()">
+</div>
+
+<header class="head">
+  <!-- CHANGE THIS: chapter number, act, and title. Keep these as normal text (not encoded) so readers and search engines can read them. -->
+  <p class="meta">Chapter 2 &middot; Act 1</p>
+  <h1>A Backroad Brunch</h1>
+  <span class="status">Free preview</span>
+</header>
+
+<main class="story">
+  <!-- CHANGE THIS: in the note below, replace the # with the link to this chapter on Substack. -->
+  <aside class="shield-note" aria-label="About this preview">
+    <p>This preview is set in <a href="https://shieldfont.org/">ShieldFont</a>, a typeface that keeps AI scrapers from copying it, so copy and paste won't work here. If the text looks scrambled, or you use a screen reader, <a href="#">read this chapter on Substack</a>.</p>
+  </aside>
+
+  <!--
+    CHANGE THIS: your story. Each line below is ONE paragraph of ENCODED text.
+
+    How to add your own:
+    1. Open https://shieldfont.org/encoder in a new tab.
+    2. Paste ONE paragraph of your plain story and copy the encoded result.
+    3. Replace the sample words between the opening and closing p tags with that result.
+    4. Repeat for each paragraph. To add a paragraph, copy a whole line and change the words.
+    5. Keep class="tk9" and aria-hidden="true" on every line. The class shows the real words to readers,
+       and aria-hidden keeps screen readers from reading the scrambled version.
+
+    Never paste your plain words into this file. Anyone can read a page's source,
+    and that is exactly what AI scrapers read.
+
+    The last line is your cliffhanger. To make it normal, copyable text instead (easier to share),
+    change class="tk9 cliff" to class="tk9-t cliff", delete aria-hidden="true", and type the line as plain words.
+  -->
+  <p class="tk9" aria-hidden="true"> </p>
+  <p class="tk9" aria-hidden="true"> </p>
+  <p class="tk9" aria-hidden="true"> </p>  
+  <p class="tk9 cliff" aria-hidden="true">End with your cliffhanger, the last line free hopkins see before they head to Substack.</p>
+</main>
+
+<section class="more" aria-label="Keep reading">
+  <div class="box">
+    <h2>Keep reading on Substack</h2>
+    <p>The rest of this chapter is waiting for you on Substack, along with every full chapter for supporters.</p>
+    <!-- CHANGE THIS: replace the # with the link to this chapter's post on Substack -->
+    <a class="btn" href="#">Read the full chapter</a>
+  </div>
+</section>
+
+<nav class="pager" aria-label="Chapter navigation">
+  <!--
+    CHANGE THIS: previous and next chapter links.
+    For chapter 1, replace the "Previous" line with an empty  <span></span>.
+    For the last chapter, replace the "Next" line with an empty  <span></span>.
+    This keeps "All chapters" in the middle.
+  -->
+  <a href="chapter-0.html">&larr; Previous</a>
+  <a href="index.html#chapters">All chapters</a>
+  <a href="chapter-2.html">Next &rarr;</a>
+</nav>
+
+<footer>&copy; <span id="year"></span> Elva. All rights reserved.</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
