@@ -6,8 +6,9 @@
 <title>Love Finds Lydia</title>
 <meta name="description" content="A faith-forward, enemies-to-lovers romance, serialized one Saturday at a time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shieldfont/font@0.3.5/shieldfont.css">?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<p class="tk9">…encoded text from the encoder…</p>
 <style>
   :root {
     --ink: #2B1A2D;
@@ -184,7 +185,7 @@
 
 <main class="chapters" id="chapters">
   <h2>Chapters</h2>
-  <p class="sub">A new chapter every Saturday. Free readers get the opening scenes; supporters get every full chapter.</p>
+  <p class="sub">A new chapter every Saturday. !--Free readers get the opening scenes; supporters get every full chapter.--></p>
   <div class="grid" id="grid"></div>
 </main>
 
@@ -198,7 +199,7 @@
 </section>
 
 <footer>&copy; <span id="year"></span> Elva. All rights reserved.</footer>
-
+<Shield>
 <script>
   /*
     EDIT YOUR CHAPTERS HERE.
@@ -232,7 +233,7 @@
       blurb: "Whose name is on the filing? Lydia is about to find out.",
       image: "images/chapter-8.jpg", g: "linear-gradient(135deg,#2B1A2D,#7A4A86)" }
   ];
-
+</Shield>
   function art(ch) {
     return '<span class="art" style="--g:' + ch.g + '"><span class="num" aria-hidden="true">' + ch.n + '</span>' +
            '<img src="' + ch.image + '" alt="Artwork for chapter ' + ch.n + ': ' + ch.title + '" onerror="this.remove()"></span>';
