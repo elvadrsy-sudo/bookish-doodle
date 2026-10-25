@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Love Finds Lydia</title>
+<meta name="description" content="A faith-forward, enemies-to-lovers romance, serialized one Saturday at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2B1A2D;
+    --muted: #6E5A70;
+    --plum: #5A2350;
+    --orchid: #9B4A86;
+    --gold: #D9A441;
+    --linen: #FBF5F8;
+    --mist: #F1E4EE;
+    --line: rgba(43, 26, 45, .12);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(70% 380px at 50% 0, #FFE8D6 0, rgba(255, 232, 214, 0) 100%),
+      linear-gradient(180deg, #F4DFEB 0, var(--linen) 520px);
+    background-color: var(--linen);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--orchid); outline-offset: 3px; border-radius: 6px; }
+
+  /* Floating nav pill */
+  .nav {
+    position: sticky; top: 14px; z-index: 10;
+    width: fit-content; max-width: calc(100% - 32px);
+    margin: 14px auto 0;
+    display: flex; align-items: center; gap: 22px;
+    padding: 8px 8px 8px 22px;
+    background: rgba(255, 255, 255, .86);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 6px 24px rgba(90, 35, 80, .08);
+    font-size: .92rem; font-weight: 500;
+  }
+  .nav .mark { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.1rem; text-decoration: none; color: var(--plum); }
+  .nav a.link { text-decoration: none; color: var(--muted); }
+  .nav a.link:hover { color: var(--ink); }
+  .nav .cta {
+    text-decoration: none; background: var(--ink); color: #fff;
+    padding: 9px 18px; border-radius: 999px; font-weight: 600;
+  }
+  .nav .cta:hover { background: var(--plum); }
+
+  /* Intro */
+  .intro { max-width: 640px; margin: 0 auto; padding: 56px 24px 0; text-align: center; }
+  .avatar {
+    width: 84px; height: 84px; margin: 0 auto 18px;
+    border-radius: 50%; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, var(--plum), var(--orchid));
+    display: grid; place-items: center;
+    color: #fff; font-family: var(--serif); font-size: 2.1rem; font-weight: 600;
+    border: 3px solid #fff; box-shadow: 0 6px 20px rgba(90, 35, 80, .22);
+  }
+  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .intro h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.04;
+    letter-spacing: -.02em; margin: 0 0 14px;
+  }
+  .tagline { font-size: 1.1rem; color: var(--plum); font-weight: 500; margin: 0 0 14px; }
+  .bio { color: var(--muted); margin: 0 auto 22px; max-width: 52ch; }
+  .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: .95rem; font-weight: 500; }
+  .socials a { text-decoration: underline; text-decoration-color: rgba(155, 74, 134, .4); text-underline-offset: 4px; }
+  .socials a:hover { text-decoration-color: var(--orchid); }
+
+  /* Featured fan */
+  .fan {
+    display: flex; justify-content: safe center;
+    padding: 64px 24px 84px;
+    overflow-x: auto; scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .fan::-webkit-scrollbar { display: none; }
+  .fan .card {
+    flex: 0 0 auto; width: 250px; height: 190px; margin: 0 -14px;
+    scroll-snap-align: center;
+    transform: rotate(var(--tilt)) translateY(var(--lift));
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 14px 30px rgba(90, 35, 80, .28);
+  }
+  .fan .card:nth-child(1) { --tilt: -5deg; --lift: 14px; }
+  .fan .card:nth-child(2) { --tilt: -1.5deg; --lift: 0; }
+  .fan .card:nth-child(3) { --tilt: 2deg; --lift: 6px; }
+  .fan .card:nth-child(4) { --tilt: 5.5deg; --lift: 22px; }
+  .fan .card:hover, .fan .card:focus-visible { transform: rotate(0) translateY(-10px); z-index: 2; box-shadow: 0 22px 40px rgba(90, 35, 80, .34); }
+
+  .card { position: relative; display: block; border-radius: 14px; overflow: hidden; text-decoration: none; color: #fff; background: var(--plum); }
+  .card .art { position: absolute; inset: 0; background: var(--g); }
+  .card .art .num {
+    position: absolute; right: 16px; top: -6px;
+    font-family: var(--serif); font-weight: 600; font-size: 7rem; line-height: 1;
+    color: rgba(255, 255, 255, .16);
+  }
+  .card .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(43, 26, 45, .9) 0, rgba(43, 26, 45, .35) 48%, rgba(43, 26, 45, 0) 78%); }
+  .card .text { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 1; }
+  .card .kicker { display: block; font-size: .78rem; opacity: .85; margin-bottom: 2px; }
+  .card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.15; margin: 0 0 4px; }
+  .card p { margin: 0; font-size: .82rem; line-height: 1.4; opacity: .9; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Chapters grid */
+  .chapters { max-width: 860px; margin: 0 auto; padding: 16px 24px 24px; }
+  .chapters h2 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 0 0 6px; }
+  .chapters .sub { color: var(--muted); margin: 0 0 26px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px 26px; }
+  .item .thumb { aspect-ratio: 16 / 10; width: 100%; border-radius: 12px; box-shadow: 0 8px 22px rgba(90, 35, 80, .16); transition: transform .2s ease; }
+  .item .thumb::after { background: linear-gradient(to top, rgba(43, 26, 45, .25), rgba(43, 26, 45, 0) 50%); }
+  .item:hover .thumb { transform: translateY(-3px); }
+  .item .meta { font-size: .85rem; color: var(--muted); margin: 12px 0 2px; }
+  .item h3 { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; line-height: 1.2; margin: 0 0 6px; }
+  .item h3 a { text-decoration: none; }
+  .item h3 a:hover { color: var(--orchid); }
+  .item p { margin: 0 0 8px; color: var(--muted); font-size: .95rem; }
+  .status { display: inline-block; font-size: .82rem; font-weight: 600; color: var(--plum); background: var(--mist); padding: 3px 11px; border-radius: 999px; }
+  .status.live { background: var(--plum); color: #fff; }
+
+  /* Subscribe band */
+  .subscribe { max-width: 860px; margin: 40px auto 0; padding: 0 24px; }
+  .subscribe .box {
+    border-radius: 18px; padding: 34px 28px; text-align: center; color: #fff;
+    background: linear-gradient(135deg, var(--plum), var(--orchid));
+  }
+  .subscribe h2 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin: 0 0 8px; }
+  .subscribe p { margin: 0 auto 18px; max-width: 46ch; opacity: .92; }
+  .subscribe a.btn { display: inline-block; text-decoration: none; background: #fff; color: var(--plum); font-weight: 600; padding: 11px 24px; border-radius: 999px; }
+  .subscribe a.btn:hover { background: var(--gold); color: var(--ink); }
+
+  footer { text-align: center; color: var(--muted); font-size: .88rem; padding: 40px 24px 56px; }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+    .fan { justify-content: flex-start; padding-left: 40px; padding-right: 40px; }
+    .nav { gap: 14px; padding-left: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fan .card, .item .thumb { transition: none; }
+  }
+</style>
+</head>
+<body id="top">
+
+<nav class="nav" aria-label="Main">
+  <a class="mark" href="#top">Lydia</a>
+  <a class="link" href="#top">Home</a>
+  <a class="link" href="#chapters">Chapters</a>
+  <a class="cta" href="#subscribe">Subscribe</a>
+</nav>
+
+<header class="intro">
+  <div class="avatar" aria-hidden="true">E<img src="images/elva.jpg" alt="" onerror="this.remove()"></div>
+  <h1>Love Finds Lydia</h1>
+  <p class="tagline">A faith-forward, enemies-to-lovers romance, serialized one Saturday at a time.</p>
+  <p class="bio">Hey friends! I'm Elva, the writer behind Proverbs &amp; Positivity. Lydia swore she'd never marry again. Gideon took one look at her and decided otherwise. Then they ended up on opposite sides of the same piece of land.</p>
+  <div class="socials">
+    <!-- Replace each "#" with your real link. -->
+    <a href="#">Substack</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">TikTok</a>
+  </div>
+</header>
+
+<section class="fan" id="featured" aria-label="First chapters"></section>
+
+<main class="chapters" id="chapters">
+  <h2>Chapters</h2>
+  <p class="sub">A new chapter every Saturday. Free readers get the opening scenes; supporters get every full chapter.</p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section class="subscribe" id="subscribe">
+  <div class="box">
+    <h2>Get every Saturday chapter</h2>
+    <p>Subscribe for the free opening scenes in your inbox, or become a supporter for the full story.</p>
+    <!-- Replace "#" with your Substack link. -->
+    <a class="btn" href="#">Subscribe on Substack</a>
+  </div>
+</section>
+
+<footer>&copy; <span id="year"></span> Elva. All rights reserved.</footer>
+
+<script>
+  /*
+    EDIT YOUR CHAPTERS HERE.
+    - Put each chapter's artwork in the "images" folder named chapter-1.jpg, chapter-2.jpg, and so on
+      (or change the "image" value below). Until the file exists, the colored placeholder shows.
+    - When a chapter is posted, add its link as  url: "https://...",  and the card will say "Read chapter".
+  */
+  var chapters = [
+    { n: 1, act: "Act 1", title: "That's my kinda girl", date: "Nov 7",
+      blurb: "A community site walk, a mayor who loves a microphone, and a man who decides Lydia is his kind of girl in about one second.",
+      image: "images/chapter-1.jpg", g: "linear-gradient(135deg,#6B2D5C,#C26A8E)" },
+    { n: 2, act: "Act 1", title: "My boy", date: "Nov 14",
+      blurb: "Lydia joins the community group, makes a friend in Hannah, and hears a lot about a certain son.",
+      image: "images/chapter-2.jpg", g: "linear-gradient(135deg,#3F4E7A,#9B7BB8)" },
+    { n: 3, act: "Act 2", title: "Co-chairs", date: "Nov 21",
+      blurb: "Two rivals, one land review, and a town council that thinks this is a great idea.",
+      image: "images/chapter-3.jpg", g: "linear-gradient(135deg,#8A3B5E,#E39A7B)" },
+    { n: 4, act: "Act 2", title: "In the margins", date: "Nov 28",
+      blurb: "What Lydia finds written beside the verses changes what she thought she knew about men.",
+      image: "images/chapter-4.jpg", g: "linear-gradient(135deg,#4B2A63,#B07AA1)" },
+    { n: 5, act: "Act 2", title: "Doesn't quite add up", date: "Dec 5",
+      blurb: "Some numbers never match. Lydia notices, and says nothing. Yet.",
+      image: "images/chapter-5.jpg", g: "linear-gradient(135deg,#2F5A5C,#8FB5A3)" },
+    { n: 6, act: "Act 2", title: "Never again", date: "Dec 12",
+      blurb: "Gideon makes one quiet change to the plans. Lydia still says never again.",
+      image: "images/chapter-6.jpg", g: "linear-gradient(135deg,#A4574B,#E7B27A)" },
+    { n: 7, act: "Act 3", title: "Every no", date: "Dec 19",
+      blurb: "He respects every no she gives. That turns out to be the problem.",
+      image: "images/chapter-7.jpg", g: "linear-gradient(135deg,#7B2D5A,#E58FA6)" },
+    { n: 8, act: "Act 3", title: "The paperwork", date: "Dec 26",
+      blurb: "Whose name is on the filing? Lydia is about to find out.",
+      image: "images/chapter-8.jpg", g: "linear-gradient(135deg,#2B1A2D,#7A4A86)" }
+  ];
+
+  function art(ch) {
+    return '<span class="art" style="--g:' + ch.g + '"><span class="num" aria-hidden="true">' + ch.n + '</span>' +
+           '<img src="' + ch.image + '" alt="Artwork for chapter ' + ch.n + ': ' + ch.title + '" onerror="this.remove()"></span>';
+  }
+
+  var fan = document.getElementById("featured");
+  chapters.slice(0, 4).forEach(function (ch) {
+    var a = document.createElement("a");
+    a.className = "card";
+    a.href = ch.url || "#chapters";
+    a.innerHTML = art(ch) +
+      '<span class="text"><span class="kicker">' + ch.act + '</span><h3>' + ch.title + '</h3><p>' + ch.blurb + '</p></span>';
+    fan.appendChild(a);
+  });
+
+  var grid = document.getElementById("grid");
+  chapters.forEach(function (ch) {
+    var live = !!ch.url;
+    var el = document.createElement("article");
+    el.className = "item";
+    el.innerHTML =
+      '<div class="card thumb" aria-hidden="true">' + art(ch) + '</div>' +
+      '<div class="meta">Chapter ' + ch.n + ' &middot; ' + ch.act + '</div>' +
+      '<h3>' + (live ? '<a href="' + ch.url + '">' + ch.title + '</a>' : ch.title) + '</h3>' +
+      '<p>' + ch.blurb + '</p>' +
+      (live ? '<a class="status live" href="' + ch.url + '">Read chapter</a>' : '<span class="status">Posts ' + ch.date + '</span>');
+    grid.appendChild(el);
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
